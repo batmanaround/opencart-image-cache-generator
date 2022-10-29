@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<title>OpenCart Image Cache Generator</title>
+<script>
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+function openWindow(){
+    var x = document.getElementById('a').value.split('\n');
+    for (var i = 0; i < x.length; i++)
+        if (x[i].indexOf('.') > 0) {
+            if (x[i].indexOf('://') < 0) {
+                window.open('https://'+x[i]);
+        	}
+            else {
+                window.open(x[i]);
+			}
+		sleep(10000);
+		}
+}
+</script>
+<style>
+html, body
+{
+    height : 99%;
+    width  : 99%;
+}
+
+textarea
+{
+    height : 80%;
+    width  : 90%;
+}
+</style>
+</head>
+<body>
+<textarea id="a"></textarea>
+<br>
+<input type="button" value="Open Windows" onClick="openWindow()">
+<input type="button" value="Clear" onClick="document.getElementById('a').value=''">
+</body>
+</html>
